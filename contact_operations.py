@@ -93,9 +93,15 @@ def delete_contact():
 
     for contact in contacts:
         if contact["name"].lower()==contact_name.lower():
-            contacts.remove(contact)
-            save_contacts(contacts)
-            print("Contact deleted successfully!!!")
+            confirm=input(f"Are You sure you want to delete {contact['name']}?(Yes/No):")
+
+            if confirm.strip().lower()=="yes":
+                contacts.remove(contact)
+                save_contacts(contacts)
+                print("Contact deleted successfully!!!")
+            else:
+                print("Deletion cancelled.")
+
             return 
     print("Contact not found.")
 
