@@ -1,4 +1,5 @@
 from data_store import contacts
+from validations import validate_name,validate_phone,validate_email
 
 def add_contacts():
     print("\n---Add New Contact---")
@@ -6,6 +7,16 @@ def add_contacts():
     name=input("Enter Name: ")
     phone=input("Enter Phone Number: ")
     email=input("Enter Email Address: ")
+
+    if not validate_name(name):
+        return 
+    
+    if not validate_phone(phone):
+        return 
+    
+    if not validate_email(email):
+        return
+    
 
     contact={
         "name":name,
@@ -43,6 +54,13 @@ def update_contact():
         if contact["name"].lower()==contact_name.lower():
             new_phone=input("Enter new phone number:")
             new_email=input("Enter new email address:")
+
+            if not validate_phone(new_phone):
+                return
+            
+            if not validate_email(new_email):
+                return
+
 
             contact["phone"]=new_phone
             contact["email"]=new_email
