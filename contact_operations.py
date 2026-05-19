@@ -31,13 +31,14 @@ def add_contacts():
     print("Contact Added Successfully!!!")
 
 def view_contacts():
-    print("\n---Contacts List---")
+    print("\n---View Contacts---")
 
     if len(contacts)==0:
-        print("No Contacts Found.")
+        print("No Contacts Available.")
+        return
 
-    for contact in contacts:
-        print("-----------------")
+    for index,contact in enumerate(contacts,start=1):
+        print(f"\nContact: {index}")
         print("Name:",contact["name"])
         print("Phone:",contact["phone"])
         print("Email:",contact["email"])
@@ -55,7 +56,8 @@ def update_contact():
     for contact in contacts:
         if contact["name"].lower()==contact_name.lower():
 
-            print("\nCurrent Details:")
+            print("\nCurrent Contact Details:")
+            print("--------------------")
             print("Name:",contact["name"])
             print("Phone:",contact["phone"])
             print("Email:",contact["email"])
@@ -112,20 +114,26 @@ def search_contact():
     if len(contacts)==0:
         print("No Contacts Available.")
         return
-    search_value=input("Enter name or phone number to search:")
+    
+    search_value=input("Enter name or phone number to search:").strip()
 
-    found=False
+    found_contacts=[]
 
     for contact in contacts:
         if(
             contact["name"].lower()==search_value.lower()
             or contact["phone"]== search_value
         ):
+            found_contacts.append(contact)
+        
+        if len(found_contacts)==0:
+            print("Contact Not Found.")
+            return 
+        print("\nMatching Contacts:")
+
+        for contact in found_contacts:
+            print("-----------------")
             print("\nContact Found:")
             print("Name:",contact["name"])
             print("Phone:",contact["phone"])
             print("Email:",contact["email"])
-            found=True
-
-        if not found:
-            print("Contact not found.")

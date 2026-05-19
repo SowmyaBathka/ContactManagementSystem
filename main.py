@@ -7,7 +7,9 @@ from contact_operations import (
 )
 
 def show_menu():
-    print("\n===== CONTACT MANAGEMENT SYSTEM =====")
+    print("\n"+"*"*40)
+    print("===== CONTACT MANAGEMENT SYSTEM =====")
+    print("*"*40)
     print("1. Add Contact")
     print("2. View Contacts")
     print("3. Update Contact")
@@ -38,7 +40,7 @@ def main():
             search_contact()
 
         elif choice == "6":
-            print("\nExiting Contact Management System...")
+            print("\nThank You for using Contact Management System....")
             break
 
         else:
