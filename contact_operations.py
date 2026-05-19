@@ -29,7 +29,7 @@ def add_contacts():
     print("Contact Added Successfully!!!")
 
 def view_contacts():
-    print("\n---Conatcts List---")
+    print("\n---Contacts List---")
 
     if len(contacts)==0:
         print("No Contacts Found.")
@@ -52,18 +52,24 @@ def update_contact():
 
     for contact in contacts:
         if contact["name"].lower()==contact_name.lower():
-            new_phone=input("Enter new phone number:")
-            new_email=input("Enter new email address:")
 
-            if not validate_phone(new_phone):
-                return
+            print("\nCurrent Details:")
+            print("Name:",contact["name"])
+            print("Phone:",contact["phone"])
+            print("Email:",contact["email"])
+
+            new_phone=input("Enter new phone number(Press Enter to Keep current):")
+            new_email=input("Enter new email address(Press Enter to Keep current):")
+
+            if new_phone!="":
+                if not validate_phone(new_phone):
+                    return
+                contact["phone"]=new_phone
             
-            if not validate_email(new_email):
-                return
-
-
-            contact["phone"]=new_phone
-            contact["email"]=new_email
+            if new_email!="":
+                if not validate_email(new_email):
+                    return
+                contact["email"]=new_email
 
             print("Contact updated successfully!!")
             return 
@@ -84,6 +90,6 @@ def delete_contact():
     for contact in contacts:
         if contact["name"].lower()==contact_name.lower():
             contacts.remove(contact)
-            print("Conatct deleted successfully!!!")
+            print("Contact deleted successfully!!!")
             return 
     print("Contact not found.")
