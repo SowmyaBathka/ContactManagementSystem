@@ -1,5 +1,6 @@
 from data_store import contacts
 from validations import validate_name,validate_phone,validate_email
+from storage import save_contacts
 
 def add_contacts():
     print("\n---Add New Contact---")
@@ -25,6 +26,7 @@ def add_contacts():
     }
 
     contacts.append(contact)
+    save_contacts(contacts)
 
     print("Contact Added Successfully!!!")
 
@@ -71,6 +73,8 @@ def update_contact():
                     return
                 contact["email"]=new_email
 
+            save_contacts(contacts)
+
             print("Contact updated successfully!!")
             return 
         
@@ -90,6 +94,7 @@ def delete_contact():
     for contact in contacts:
         if contact["name"].lower()==contact_name.lower():
             contacts.remove(contact)
+            save_contacts(contacts)
             print("Contact deleted successfully!!!")
             return 
     print("Contact not found.")
