@@ -1,7 +1,21 @@
 from data_store import contacts
 
 def add_contacts():
-    print("\nAdd Contact feature will be implemented tomorrow.")
+    print("\n---Add New Contact---")
+
+    name=input("Enter Name: ")
+    phone=input("Enter Phone Number: ")
+    email=input("Enter Email Address: ")
+
+    contact={
+        "name":name,
+        "phone":phone,
+        "email":email
+    }
+
+    contacts.append(contact)
+
+    print("Contact Added Successfully!!!")
 
 def view_contacts():
     print("\nView Contact feature will be implemented later.")

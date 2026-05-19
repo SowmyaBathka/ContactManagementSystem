@@ -5,7 +5,6 @@ from contact_operations import (
     delete_contact
 )
 
-
 def show_menu():
     print("\n===== CONTACT MANAGEMENT SYSTEM =====")
     print("1. Add Contact")
