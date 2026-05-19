@@ -30,7 +30,27 @@ def view_contacts():
         print("Email:",contact["email"])
 
 def update_contact():
-    print("\nUpdate Contact feature will be implemented later.")
+    print("\n---Update Contact---")
+
+    if len(contacts)==0:
+        print("No Contacts available to update.")
+        return
+    view_contacts()
+
+    contact_name=input("\nEnter the name of the contact to update:")
+
+    for contact in contacts:
+        if contact["name"].lower()==contact_name.lower():
+            new_phone=input("Enter new phone number:")
+            new_email=input("Enter new email address:")
+
+            contact["phone"]=new_phone
+            contact["email"]=new_email
+
+            print("Contact updated successfully!!")
+            return 
+        
+    print("Contact not found.")
 
 def delete_contact():
     print("\nDelete Contact feature will be implemented later.")
