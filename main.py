@@ -20,31 +20,40 @@ def show_menu():
 
 def main():
     while True:
-        show_menu()
+        try:
+            show_menu()
 
-        choice = input("Enter your choice (1-6): ")
+            choice = input("Enter your choice (1-6): ")
 
-        if choice == "1":
-            add_contacts()
+            if choice == "1":
+                add_contacts()
 
-        elif choice == "2":
-            view_contacts()
+            elif choice == "2":
+                view_contacts()
 
-        elif choice == "3":
-            update_contact()
+            elif choice == "3":
+                update_contact()
 
-        elif choice == "4":
-            delete_contact()
+            elif choice == "4":
+                delete_contact()
 
-        elif choice == "5":
-            search_contact()
+            elif choice == "5":
+                search_contact()
 
-        elif choice == "6":
-            print("\nThank You for using Contact Management System....")
+            elif choice == "6":
+                print("\nThank You for using Contact Management System....")
+                break
+
+            else:
+                print("\nInvalid choice! Please enter a number between 1 and 6.")
+       
+        except KeyboardInterrupt:
+            print("\nProgram interrupted by user.")
             break
 
-        else:
-            print("\nInvalid choice! Please enter a number between 1 and 6.")
+        except Exception as error:
+            print("Unexpected error:",error)
+
 
 
 main()
