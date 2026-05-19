@@ -18,7 +18,16 @@ def add_contacts():
     print("Contact Added Successfully!!!")
 
 def view_contacts():
-    print("\nView Contact feature will be implemented later.")
+    print("\n---Conatcts List---")
+
+    if len(contacts)==0:
+        print("No Contacts Found.")
+
+    for contact in contacts:
+        print("-----------------")
+        print("Name:",contact["name"])
+        print("Phone:",contact["phone"])
+        print("Email:",contact["email"])
 
 def update_contact():
     print("\nUpdate Contact feature will be implemented later.")
