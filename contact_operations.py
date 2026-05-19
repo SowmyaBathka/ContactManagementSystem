@@ -93,3 +93,28 @@ def delete_contact():
             print("Contact deleted successfully!!!")
             return 
     print("Contact not found.")
+
+
+def search_contact():
+    print("\n---Search Contact---")
+
+    if len(contacts)==0:
+        print("No Contacts Available.")
+        return
+    search_value=input("Enter name or phone number to search:")
+
+    found=False
+
+    for contact in contacts:
+        if(
+            contact["name"].lower()==search_value.lower()
+            or contact["phone"]== search_value
+        ):
+            print("\nContact Found:")
+            print("Name:",contact["name"])
+            print("Phone:",contact["phone"])
+            print("Email:",contact["email"])
+            found=True
+
+        if not found:
+            print("Contact not found.")

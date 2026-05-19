@@ -2,7 +2,8 @@ from contact_operations import (
     add_contacts,
     view_contacts,
     update_contact,
-    delete_contact
+    delete_contact,
+    search_contact
 )
 
 def show_menu():
@@ -11,14 +12,15 @@ def show_menu():
     print("2. View Contacts")
     print("3. Update Contact")
     print("4. Delete Contact")
-    print("5. Exit")
+    print("5. Search Contact")
+    print("6. Exit")
 
 
 def main():
     while True:
         show_menu()
 
-        choice = input("Enter your choice (1-5): ")
+        choice = input("Enter your choice (1-6): ")
 
         if choice == "1":
             add_contacts()
@@ -33,11 +35,14 @@ def main():
             delete_contact()
 
         elif choice == "5":
+            search_contact()
+
+        elif choice == "6":
             print("\nExiting Contact Management System...")
             break
 
         else:
-            print("\nInvalid choice! Please enter a number between 1 and 5.")
+            print("\nInvalid choice! Please enter a number between 1 and 6.")
 
 
 main()
