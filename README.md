@@ -29,7 +29,7 @@ This project allows users to manage contact details efficiently using CRUD opera
 ---
 
 ## Project Structure
-
+```text
 ContactManagementSystem/
 │
 ├── main.py
@@ -38,7 +38,7 @@ ContactManagementSystem/
 ├── storage.py
 ├── contacts.json
 └── README.md
-
+```
 ---
 
 ## Module Description
