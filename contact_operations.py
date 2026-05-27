@@ -25,6 +25,11 @@ def add_contacts():
         "email":email
     }
 
+    for contact in contacts:
+        if contact["phone"] == phone:
+            print("Contact with this phone number already exists.")
+            return
+        
     contacts.append(contact)
     save_contacts(contacts)
 
@@ -126,14 +131,15 @@ def search_contact():
         ):
             found_contacts.append(contact)
         
-        if len(found_contacts)==0:
-            print("Contact Not Found.")
-            return 
-        print("\nMatching Contacts:")
+    if len(found_contacts)==0:
+        print("Contact Not Found.")
+        return 
+        
+    print("\nMatching Contacts:")
 
-        for contact in found_contacts:
-            print("-----------------")
-            print("\nContact Found:")
-            print("Name:",contact["name"])
-            print("Phone:",contact["phone"])
-            print("Email:",contact["email"])
+    for contact in found_contacts:
+        print("-----------------")
+        print("\nContact Found:")
+        print("Name:",contact["name"])
+        print("Phone:",contact["phone"])
+        print("Email:",contact["email"])
