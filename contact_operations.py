@@ -1,6 +1,7 @@
-from data_store import contacts
 from validations import validate_name,validate_phone,validate_email
-from storage import save_contacts
+from storage import load_contacts,save_contacts
+
+contacts=load_contacts()
 
 def add_contacts():
     print("\n---Add New Contact---")
@@ -19,18 +20,24 @@ def add_contacts():
         return
     
 
-    contact={
-        "name":name,
-        "phone":phone,
-        "email":email
+    contact = {
+        "name": name,
+        "phone": phone,
+        "email": email
     }
 
-    for contact in contacts:
-        if contact["phone"] == phone:
+    for existing_contact in contacts:
+        if existing_contact["phone"] == phone:
             print("Contact with this phone number already exists.")
             return
-        
+
+    print("New Contact =", contact)
+    print("Contacts Before Append =", contacts)
+
     contacts.append(contact)
+
+    print("Contacts After Append =", contacts)
+
     save_contacts(contacts)
 
     print("Contact Added Successfully!!!")
